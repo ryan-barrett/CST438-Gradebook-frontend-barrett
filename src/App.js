@@ -5,24 +5,27 @@ import Typography from '@material-ui/core/Typography';
 import Gradebook from './components/Gradebook';
 import Assignment from './components/Assignment';
 import AddAssignment from './components/AddAssignment';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import Login from './components/Login';
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <AppBar position="static" color="default">
         <Toolbar>
-           <Typography variant="h6" color="inherit">
+          <Typography variant="h6" color="inherit">
             Gradebook
-           </Typography>
+          </Typography>
         </Toolbar>
       </AppBar>
       <BrowserRouter>
-       <Switch>
-        <Route exact path='/' component={Assignment} />
-         <Route exact path='/assignment/add' component={AddAssignment} />
-        <Route path='/gradebook' component={Gradebook} />
-       </Switch>
+        <Switch>
+          <Route exact path='/' component={Login}/>
+          <Route exact path='/assignment' component={Assignment}/>
+          <Route exact path='/assignment/add' component={AddAssignment}/>
+          <Route path='/gradebook' component={Gradebook}/>
+        </Switch>
       </BrowserRouter>
     </div>
   );
