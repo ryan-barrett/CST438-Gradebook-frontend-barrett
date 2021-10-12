@@ -43,7 +43,8 @@ class AddAssignment extends Component {
         headers: {
           'X-XSRF-TOKEN': token,
           'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          credentials: 'include'
         },
         body: JSON.stringify({
           'assignmentName': this.state.name,

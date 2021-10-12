@@ -28,12 +28,12 @@ class Assignment extends Component {
     fetch(`${SERVER_URL}/gradebook`, 
       {  
         method: 'GET', 
-        headers: { 'X-XSRF-TOKEN': token }
+        headers: { 'X-XSRF-TOKEN': token, credentials: 'include' }
       } )
     .then((response) => response.json()) 
     .then((responseData) => { 
       if (Array.isArray(responseData.assignments)) {
-        //  add to each row attribute "id"  This is required by DataGrid  id is the index value of row in table 
+        //  add to each row attribute "id"  This is required by DataGrid  id is the index value of row in table
         this.setState({ rows: responseData.assignments.map((row, index) => ( { id: index, ...row } )) });
       } else {
         toast.error("Fetch failed.", {
